@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+<title>Log In</title>
+</head>
+
+
+<section layout:fragment="conteudo">
+
+	<div th:if="${param.error}" class="alert alert-danger maxsize"
+		role="alert">Os dados inseridos são inválidos</div>
+	<div th:if="${param.logout}" class="alert alert-warning maxsize"
+		role="alert">You have been logged out.</div>
+
+	<form th:action="@{/login}" method="post">
+		<h2 class="form-head-sigin">Por favor informar seus dados</h2>
+		<div class="form-group">
+			<label> User Name : <input type="text" name="username"
+				class="form-control" />
+			</label>
+		</div>
+		<div class="form-group">
+			<label> Password: <input type="password" name="password"
+				class="form-control" />
+			</label>
+		</div>
+		<div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</form>
+
+</section>
+</html>

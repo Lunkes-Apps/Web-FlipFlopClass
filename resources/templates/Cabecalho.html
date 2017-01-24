@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+</head>
+
+
+<nav class="navbar navbar-inverse ajuste-navbar">
+	<div class="container-fluid">
+		<div class="navbar-header ajuste">
+			<a class="navbar-brand" href="#"> <img alt="IconeBrand"
+				th:src="@{/images/logo.png}" />
+			</a>
+		</div>
+
+		<img class="image-position" th:src="@{/images/frase.png}" />
+
+		<div class="collapse navbar-collapse ajuste-menus"
+			th:object="${islogged}">
+			<ul class="nav navbar-nav navbar-right">
+
+				<li id="perfil"><button class="btn btn-warning ajuste-cadastro" data-toggle="modal"
+						data-target="#modalCadastro"
+						th:if="${#httpServletRequest.remoteUser == null}">Cadastro</button></li>
+				<li id="produtos"><button class="btn btn-success ajuste-cadastro" data-toggle="modal"
+						data-target="#modalLogin"
+					th:if="${#httpServletRequest.remoteUser == null}">Log in</button></li>
+				<li id="produtos"><a href="http://localhost:8080/logout"
+					th:if="${#httpServletRequest.remoteUser != null}">Log out</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<!-- Modal Cadastro -->
+<div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Cadastro de Usuário</h4>
+			</div>
+			<div class="modal-body">
+			   <div layout:include="cadastroForm"></div>			
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<!-- Modal Cadastro -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Cadastro de Usuário</h4>
+			</div>
+			<div class="modal-body">
+			   <div layout:include="loginForm"></div>			
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+<div>
+	<div class="menu-options" id="menuBar">
+		<ul>
+			<li><a href="http://localhost:8080/home">Home</a></li>
+			<li><a href="http://localhost:8080/estudos-android">Java</a></li>
+			<li><a href="http://localhost:8080/estudos-android">Android</a></li>
+			<li><a href="http://localhost:8080/estudos-android">Estrutura
+					de Dados</a></li>
+			<li><a href="http://localhost:8080/estudos-android">Blog</a></li>
+		</ul>
+	</div>
+</div>
+
+
+
+</html>

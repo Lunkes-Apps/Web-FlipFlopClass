@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+<title>FlipFlopClass - Cursos de Programação</title>
+</head>
+<section layout:fragment="conteudo">
+
+
+  
+	<div class="titulo-cursos conteudo-espaco">
+		<h2 th:text="${estudo.titulo}"></h2>
+		<a href="http://localhost:8080/estudos-android">Lista Completa</a>
+	</div>
+	
+	<div class="conteudo-espaco video-position">
+	<h4 th:text="${estudo.descricao}"></h4>
+    <iframe width="560" height="315" th:src="${estudo.linkVideo}" frameborder="0" allowfullscreen="true"></iframe>    
+   	</div>
+
+</section>
+</html>
